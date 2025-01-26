@@ -1,0 +1,19 @@
+---
+layout: default.njk
+permalink: /success/index.html
+eleventyExcludeFromCollections: true
+---
+
+{% edge "njk, md" %}
+  {% if isRegular or isPremium %}
+    <p>Confirmed! You're a subscriber!</p>
+    <p>You have access to subscriber-only content.</p>
+    {% if isPremium %}
+      <p>You also have access to premium content.</p>
+    {% endif %}
+  {% else %}
+     <p>Whoops! You found this page but haven't logged in! <a href="/login">Log in here.</p>
+  {% endif %}
+{% endedge %}
+
+<p><a href="/">Go back to the index</a> to see what content is now available.</p>

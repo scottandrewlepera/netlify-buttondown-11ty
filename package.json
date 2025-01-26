@@ -1,0 +1,19 @@
+{
+  "name": "netlify-buttondown-11ty",
+  "version": "1.0.0",
+  "description": "Netlify Buttondown 11ty integration demo",
+  "scripts": {
+    "build": "npx @11ty/eleventy",
+    "start": "npx @11ty/eleventy --serve --quiet"
+  },
+  "keywords": ["netlify","buttondown","11ty","eleventy"],
+  "author": "Scott Andrew LePera",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "2.0.0",
+    "dotenv": "16.4.5"
+  },
+  "engines": {
+      "node": ">=20"
+  }
+}

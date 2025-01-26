@@ -1,0 +1,16 @@
+{% edge "njk, md", { regular: regular, premium: premium } %}
+  {% if regular %}
+    {% if isRegular or isPremium %}
+      {{ regular | safe }}
+    {% else %}
+      <p class="gated">Subscribers-only! Please <a href="/">log in</a>.</p>
+    {% endif %}
+  {% endif %}
+  {% if premium %}
+    {% if isPremium  %}
+      {{ premium | safe }}
+    {% else %}
+      <p class="gated">Paid subscribers-only! Please <a href="/">log in</a>.</p>
+    {% endif %}
+  {% endif %}
+{% endedge %}

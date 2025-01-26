@@ -1,0 +1,27 @@
+---
+layout: default.njk
+permalink: /index.html
+eleventyExcludeFromCollections: true
+---
+
+<h1>Netlify + Buttondown + 11ty Integration Demo</h1>
+
+<p>See the source code of this file to learn how it works.</p>
+
+<h3>Regular (free) content</h3>
+{% edge "njk, md" %}
+{% if isRegular or isPremium %}
+  <p>This paragraph is regular content. It will only appear for free subscribers.</p>
+  {% else %}
+  <p class="gated">Subscribers-only! Please <a href="/login">log in</a>.</p>
+{% endif %}
+{% endedge %}
+
+<h3>Premium (paid) content</h3>
+{% edge "njk, md" %}
+{% if isPremium %}
+  <p>This paragraph is premium content. It will only appear for free and paid subscribers.</p>
+  {% else %}
+  <p class="gated">Paid subscribers-only! Please <a href="/login">log in</a>.</p>
+{% endif %}
+{% endedge %}
