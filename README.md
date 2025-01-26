@@ -10,6 +10,7 @@ A second edge function is then used to check the subscription status based on th
 
 ## Important caveats
 
+- This demo relies on Eleventy v2.x, which has the Edge plug-in included. This plug-in was removed in version 3.0, so this demo will not work if you upgrade from 2.x.
 - This is not true user authentication, but a lightweight integration. There are no passwords involved, just a lookup to confirm an email is  subscribed to your Buttondown list.
 - Usage may subject your website to GDPR data protections. It's up to you to figure this out.
 - Netlify edge function invocations and Buttondown API calls may be metered or throttled, so applying the lookup and/or cookie check to your entire site is not recommended. Instead, limit the cookie check  to the areas of your site that have subscriber-only content, and never use the lookup function for anything other than the lookup form target.
@@ -18,6 +19,7 @@ A second edge function is then used to check the subscription status based on th
 
 You'll need:
 
+- Eleventy 2.x (included)
 - a [Netlify](https://netlify.com) account (to deploy your site)
 - a [Buttondown](https://buttondown.com) account with an API token
 
@@ -97,4 +99,4 @@ See your Netlify documentation for deploying sites and edge functions.
 
 ## See also
 
-[Building A Membership Site With 11ty](https://11ty.rocks/posts/building-a-membership-site-with-11ty/) by Stephanie Eckles, which provided some of the fundamentals used in this app;
+[Building A Membership Site With 11ty](https://11ty.rocks/posts/building-a-membership-site-with-11ty/) by Stephanie Eckles, which provided some of the fundamentals used in this app.
