@@ -3,12 +3,19 @@ export default async (request, context) => {
   const origin = request.headers.get('origin') ??
     request.headers.get('referer');
   if (origin !== context.site.url) {
-    return new Response("404 Not Found", {status: 403});
+    return new Response("404 Not Found", {status: 404});
   }
   const body = await request.text();
   const email = new URLSearchParams(body).get('email');
 
   if (!email) {
+    return Response.redirect("/error/");
+  }
+
+  // Simple email validation. Don't @ me.
+  const re = /^[^\s@\<\{\%]+@[^\s@\<\{\%]+\.[^\s@\<\{\%]+$/;
+
+  if (!email.match(re)) {
     return Response.redirect("/error/");
   }
 
