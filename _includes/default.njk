@@ -1,18 +1,27 @@
-<style>
-  body {
-    font-family: sans-serif;
-    font-size: 16px;
-  }
-  p.gated {
-    padding: 1em;
-    border: 1px solid black;
-    border-radius: 0.5em;
-    display: inline-block;
-  }
-</style>
-
-<div>
-<!-- start content -->
-  {{ content | safe }}
-<!-- end content -->
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Netlify + Buttondown + 11ty Integration Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=0.9">
+  <style>
+    body {
+      font-family: sans-serif;
+      font-size: 16px;
+      margin: 2em;
+    }
+    p.gated {
+      padding: 1em;
+      border: 1px solid black;
+      border-radius: 0.5em;
+      display: inline-block;
+    }
+  </style>
+</head>
+  <body>
+    <div>
+    <!-- start content -->
+      {{ content | safe }}
+    <!-- end content -->
+    </div>
+  </body>
+</html>
