@@ -10,10 +10,10 @@ A second edge function is then used to check the subscription status based on th
 
 ## Important caveats
 
-- This demo relies on Eleventy v2.x, which has the Edge plug-in included. This plug-in was removed in version 3.0, so this demo will not work if you upgrade from 2.x.
+- This demo relies on Eleventy v2.x, which has the Edge plug-in included. This plug-in was removed in version 3.0, so this demo will not work if you upgrade from 2.x. You can also try using this [drop-in replacement](https://github.com/scottandrewlepera/eleventy-edge-plugin-shrinkwrapped).
 - This is not true user authentication, but a lightweight integration. There are no passwords involved, just a lookup to confirm an email is  subscribed to your Buttondown list.
 - Usage may subject your website to GDPR data protections. It's up to you to figure this out.
-- Netlify edge function invocations and Buttondown API calls may be metered or throttled, so applying the lookup and/or cookie check to your entire site is not recommended. Instead, limit the cookie check  to the areas of your site that have subscriber-only content, and never use the lookup function for anything other than the lookup form target.
+- Netlify edge function invocations and Buttondown API calls may be metered or throttled, so applying the lookup and/or cookie check to your entire site is not recommended. Instead, limit the cookie check to the areas of your site that have subscriber-only content, and never use the lookup function for anything other than the lookup form target.
 
 ## Requirements
 
@@ -25,7 +25,7 @@ You'll need:
 
 You'll need to have the following installed on your development machine:
 
-- Node v20 or higher
+- Node v14 or higher
 - the [Netlify CLI](https://docs.netlify.com/cli/get-started/)
 
 NOTE: This app is built on Eleventy 2.0, which includes the EleventyEdge plug-in. [Newer versions of Eleventy do not include this plug-in](https://www.11ty.dev/docs/plugins/edge/), so you may have to include it yourself in that case.
