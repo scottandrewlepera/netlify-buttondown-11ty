@@ -11,9 +11,17 @@ eleventyExcludeFromCollections: true
     {% if isPremium %}
       <p>You also have access to paid premium content.</p>
     {% endif %}
+    {% if return_to %}
+        <a href="{{return_to}}">Continue</a>
+    {% else %}
+        <a href="/">Continue to home</a>
+    {% endif %} 
   {% else %}
-     <p>Whoops! You found this page but haven't logged in! <a href="/login">Log in here.</p>
+     <p>Whoops! You found this page but haven't logged in!
+      {% if return_to %}
+        <a href="/login/?r={{ return_to }}">Log in here.</a>
+      {% else %}
+        <a href="/login/">Log in here.</a>
+      {% endif %}
   {% endif %}
 {% endedge %}
-
-<p><a href="/">Go back to the index</a> to see what content is now available.</p>

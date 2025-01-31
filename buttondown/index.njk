@@ -13,7 +13,7 @@ eleventyExcludeFromCollections: true
 {% if isRegular or isPremium %}
   <p>This paragraph is regular content. It will only appear for free subscribers.</p>
   {% else %}
-  <p class="gated">Subscribers-only! Please <a href="/login">log in</a>.</p>
+  <p class="gated">Subscribers-only! Please <a href="/login/?r=/">log in</a>.</p>
 {% endif %}
 {% endedge %}
 
@@ -22,6 +22,6 @@ eleventyExcludeFromCollections: true
 {% if isPremium %}
   <p>This paragraph is premium content. It will only appear for free and paid subscribers.</p>
   {% else %}
-  <p class="gated">Paid subscribers-only! Please <a href="/login">log in</a>.</p>
+  <p class="gated">Paid subscribers-only! Please <a href="/login/?r=/">log in</a>.</p>
 {% endif %}
 {% endedge %}

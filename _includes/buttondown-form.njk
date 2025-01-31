@@ -1,4 +1,9 @@
 <form method="post" action="/lookup/">
   <input type="email" name="email" required />
+  {% edge "njk, md" %}
+    {% if return_to %}
+    <input type="hidden" name="r" value="{{ return_to }}" />
+    {% endif %}
+  {% endedge %}
   <button>Submit</button>
 </form>

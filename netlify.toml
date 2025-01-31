@@ -2,11 +2,21 @@
   function = "buttondown-cookie-check"
   path = "/"
 
-# DO NOT delete anything below this line!
-
 [[edge_functions]]
   function = "buttondown-cookie-check"
   path = "/success"
+
+[[edge_functions]]
+  function = "buttondown-cookie-check"
+  path = "/login"
+
+[[edge_functions]]
+  function = "buttondown-cookie-check"
+  path = "/nosub"
+
+[[edge_functions]]
+  function = "buttondown-cookie-check"
+  path = "/error"
 
 [[edge_functions]]
   function = "buttondown-lookup"

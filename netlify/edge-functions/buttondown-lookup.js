@@ -6,20 +6,31 @@ export default async (request, context) => {
     return new Response("404 Not Found", {status: 404});
   }
   const body = await request.text();
-  const email = new URLSearchParams(body).get('email');
+  const params = new URLSearchParams(body)
+  const email = params.get('email');
 
   if (!email) {
-    return Response.redirect("/error/");
+    return Response.redirect(error);
   }
+
+  // return-to URL must be relative
+  let r = params.get('r');
+  if (r && !r.match(/^\/(?!\/)/)) {
+    r = null;
+  }
+
+  const nosub = r ? `/nosub/?r=${r}` : '/nosub/';
+  const success = r ? `/success/?r=${r}` : '/success/';
+  const error = r ? `/error/?r=${r}` : '/error/';
 
   // Simple email validation. Don't @ me.
   const re = /^[^\s@\<\{\%]+@[^\s@\<\{\%]+\.[^\s@\<\{\%]+$/;
 
   if (!email.match(re)) {
-    return Response.redirect("/error/");
+    return Response.redirect(error);
   }
 
-  const apiUrl = `https://api.buttondown.com/v1/subscribers/${email}`;
+  const apiUrl = `https://api.buttondown.com/v1/subscribers/${encodeURIComponent(email)}`;
 
   const options = {
     method: 'GET',
@@ -34,7 +45,7 @@ export default async (request, context) => {
     response = await fetch(apiUrl, options)
       .then(response => response.json());
   } catch (e) {
-    return Response.redirect("/error/");
+    return Response.redirect(error);
   }
 
   const sub = response.subscriber_type;
@@ -45,7 +56,7 @@ export default async (request, context) => {
   } else if (sub === "premium" || sub === "gifted")  {
     cookieName = "BD_PREMIUM";
   } else {
-    return Response.redirect("/nosub/");
+    return Response.redirect(nosub);
   }
 
   const now = new Date().getMonth();
@@ -59,5 +70,5 @@ export default async (request, context) => {
     expires
   });
 
-  return Response.redirect("/success/");
+  return Response.redirect(success);
 }
