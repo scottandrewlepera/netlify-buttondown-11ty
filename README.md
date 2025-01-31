@@ -86,6 +86,17 @@ Embed gated content directly into pages with the `edge` shortcode. Use the `isRe
 {% endedge %}
 ```
 
+## Redirecting visitors based on subscription status
+
+You may prefer to gate whole pages by redirecting to the login page. To do this, assign the `buttondown-redirect` edge function to any page or path. Visitors that have not logged in will be redirected to the login page.
+
+```
+# redirect unrecognized visitors to /secret to login
+[[edge_functions]]
+  function = "buttondown-redirect"
+  path = "/secret"
+```
+
 ## Deploying
 
 See your Netlify documentation for deploying sites and edge functions.
