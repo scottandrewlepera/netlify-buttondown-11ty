@@ -19,5 +19,9 @@
   path = "/error"
 
 [[edge_functions]]
+  function = "buttondown-redirect"
+  path = "/redirection-example"
+
+[[edge_functions]]
   function = "buttondown-lookup"
   path = "/lookup"
