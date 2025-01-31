@@ -12,14 +12,14 @@ eleventyExcludeFromCollections: true
       <p>You also have access to paid premium content.</p>
     {% endif %}
     {% if return_to %}
-        <a href="{{return_to}}">Continue</a>
+        <a href="{{return_to | escape}}">Continue</a>
     {% else %}
         <a href="/">Continue to home</a>
     {% endif %} 
   {% else %}
      <p>Whoops! You found this page but haven't logged in!
       {% if return_to %}
-        <a href="/login/?r={{ return_to }}">Log in here.</a>
+        <a href="/login/?r={{ return_to | escape }}">Log in here.</a>
       {% else %}
         <a href="/login/">Log in here.</a>
       {% endif %}
